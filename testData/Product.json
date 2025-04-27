@@ -1,0 +1,16 @@
+[
+    {
+        "title": "Wireless Mouse",
+        "price": "30.11",
+        "description": "ZEBRONICS Wireless Mouse",
+        "image": "https://i.pravatar.cc/100",
+        "category": "electronics"
+    },
+    {
+        "title": "Women's Handbag",
+        "price": "85.50",
+        "description": "Lavie Stylish Handbag",
+        "image": "https://i.pravatar.cc/104",
+        "category": "apparels"
+    }
+]

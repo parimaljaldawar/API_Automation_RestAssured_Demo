@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  POM file for the Selenium-Test-Handson-project.
+  
+  This file defines the project metadata, dependencies, build plugins, and configuration settings
+  used by Maven to build the project. Each section includes inline comments to explain its purpose.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <!-- Model version for the POM file -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Basic project identifiers -->
+  <groupId>com.selenium.testing</groupId>
+  <artifactId>selenium-test-Handson-project</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+
+  <!-- Project name and URL -->
+  <name>selenium-test-Handson-project</name>
+  <url>http://www.example.com</url>
+
+  <!-- Project-wide properties -->
+  <properties>
+    <!-- Sets the source encoding for the project -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Specifies the Java version for the compiler -->
+    <maven.compiler.release>17</maven.compiler.release>
+  </properties>
+
+  <!--
+    Dependency Management section: 
+    This section controls the versions of dependencies that are imported as BOMs or 
+    shared across modules/projects.
+  -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- Import JUnit BOM for centralized version management for JUnit 5 -->
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>5.11.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!--
+    Dependencies section: 
+    Lists libraries required for compiling, testing, and running the project.
+  -->
+  <dependencies>
+    <!-- REST-assured for API testing (scope: test) -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.5.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- TestNG framework for testing (scope: test) -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.11.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.junit.support/testng-engine -->
+	<dependency>
+	    <groupId>org.junit.support</groupId>
+	    <artifactId>testng-engine</artifactId>
+	    <version>1.0.6</version>
+	    <scope>test</scope>
+	</dependency>
+	
+    <!-- REST-assured JSON Path for parsing JSON responses -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-path</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+
+    <!-- Apache Log4j API for logging -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.24.3</version>
+    </dependency>
+
+    <!-- Apache Log4j Core for logging implementation -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.24.3</version>
+    </dependency>
+
+    <!-- JSON Simple library for lightweight JSON handling -->
+    <dependency>
+      <groupId>com.googlecode.json-simple</groupId>
+      <artifactId>json-simple</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+
+    <!-- Log4j SLF4J implementation for logging (scope: test) -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>2.24.3</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- REST-assured JSON Schema Validator -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-schema-validator</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+
+    <!-- REST-assured All artifact for comprehensive API testing (scope: test) -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured-all</artifactId>
+      <version>5.5.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- org.json library for JSON processing -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20250107</version>
+    </dependency>
+
+    <!-- Gson library for JSON serialization/deserialization -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.12.1</version>
+    </dependency>
+
+    <!-- REST-assured XML Path for parsing XML responses -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>xml-path</artifactId>
+      <version>5.5.1</version>
+    </dependency>
+
+    <!-- Hamcrest libraries for writing assertions in tests (scope: test) -->
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>java-hamcrest</artifactId>
+      <version>2.0.0.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <version>3.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>3.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Jackson Databind and Jackson Core for JSON data binding -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.18.3</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.18.3</version>
+    </dependency>
+
+    <!-- ScribeJava APIs for OAuth support (runtime scope) -->
+    <dependency>
+      <groupId>com.github.scribejava</groupId>
+      <artifactId>scribejava-apis</artifactId>
+      <version>8.3.3</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- JavaFaker for generating fake test data -->
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+
+    <!-- Apache POI libraries for Excel file handling -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml-schemas</artifactId>
+      <version>4.1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-scratchpad</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+
+    <!-- Apache Commons Lang for additional utilities -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.17.0</version>
+    </dependency>
+
+    <!-- ExtentReports for generating interactive test reports -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.1.2</version>
+    </dependency>
+
+    <!-- Freemarker for templating (e.g., for reports) -->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.34</version>
+    </dependency>
+
+    <!-- Apache Commons IO for file handling utilities -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.18.0</version>
+    </dependency>
+
+    <!-- Lombok to reduce boilerplate code (provided scope) -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.36</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Monte Screen Recorder for recording test executions -->
+    <dependency>
+      <groupId>com.github.stephenc.monte</groupId>
+      <artifactId>monte-screen-recorder</artifactId>
+      <version>0.7.7.0</version>
+    </dependency>
+
+    <!-- ZAP Client API for security testing -->
+    <dependency>
+      <groupId>org.zaproxy</groupId>
+      <artifactId>zap-clientapi</artifactId>
+      <version>1.16.0</version>
+    </dependency>
+
+    <!-- Log4j SLF4J implementation with exclusions to avoid conflicts -->
+    <dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+    	<version>2.0.7</version>
+	</dependency>
+	
+	<dependency>
+   		<groupId>org.apache.logging.log4j</groupId>
+    	<artifactId>log4j-slf4j2-impl</artifactId>
+    	<version>2.24.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+	<!-- allure serve "D:\RestAPI Automation Framework\Selenium_RestAssured\allure-results" -->
+	<dependency>
+	    <groupId>io.qameta.allure</groupId>
+	    <artifactId>allure-testng</artifactId>
+	    <version>2.29.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.diffplug.spotless/spotless-maven-plugin -->
+	<dependency>
+	    <groupId>com.diffplug.spotless</groupId>
+	    <artifactId>spotless-maven-plugin</artifactId>
+	    <version>2.44.4</version>
+	</dependency>
+	
+</dependencies>
+  <!--
+    Build section: Defines plugins that manage the build lifecycle of the project.
+    Plugin Management is used to lock down plugin versions to ensure consistency across builds.
+  -->
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Maven Surefire Plugin for running TestNG or JUnit tests -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.5.2</version>
+          <configuration>
+            <!-- Specifies the TestNG suite file for executing tests -->
+            <suiteXmlFiles>
+              <suiteXmlFile>testng.xml</suiteXmlFile>
+            </suiteXmlFiles>
+          </configuration>
+        </plugin>
+
+        <!-- Maven Compiler Plugin for compiling Java source code -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.14.0</version>
+          <configuration>
+            <!-- Additional compiler configurations can be set here -->
+          </configuration>
+        </plugin>
+
+        <!-- Maven Clean Plugin to clean up the project build directory -->
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.4.1</version>
+        </plugin>
+
+        <!-- Maven Resources Plugin for copying and filtering resources -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+
+        <!-- Maven Jar Plugin to package the compiled code into a JAR file -->
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.4.2</version>
+        </plugin>
+
+        <!-- Maven Install Plugin to install the project artifact into the local repository -->
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.1.4</version>
+        </plugin>
+
+        <!-- Maven Deploy Plugin to deploy the artifact to a remote repository -->
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.4</version>
+        </plugin>
+
+        <!-- Maven Site Plugin for generating project documentation -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.21.0</version>
+        </plugin>
+
+        <!-- Maven Project Info Reports Plugin for generating project reports -->
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.9.0</version>
+        </plugin>
+        	
+    <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>2.37.0</version>
+          <configuration>
+            <formats>
+              <format>
+                <includes>
+                  <include>**/*.xml</include>
+                </includes>
+                <indent>2</indent>
+              </format>
+            </formats>
+          </configuration>
+    </plugin>
+
+	<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.1.2</version>
+          <configuration>
+            <configLocation>google_checks.xml</configLocation>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>validate</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+     </plugin>
+     
+     <!-- PMD Plugin -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-pmd-plugin</artifactId>
+      <version>3.15.0</version>
+      <executions>
+        <execution>
+          <phase>verify</phase>
+          <goals>
+            <goal>check</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

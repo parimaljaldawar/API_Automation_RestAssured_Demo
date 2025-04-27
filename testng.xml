@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "src/test/resources/testng-1.0.dtd">
+
+
+<!-- 
+  TestNG suite configuration for API testing.
+  This configuration ensures proper execution and reporting for API test cases.
+-->
+<suite name="API Test Suite" parallel="false" thread-count="2">
+
+  <!-- 
+    Listeners are used to add additional reporting/logging features.
+    Make sure the ExtentReportManager class exists and is correctly implemented.
+  -->
+  <listeners>
+    <listener class-name="utils.ExtentReportManager"/>
+  </listeners>
+
+  <!-- Define the test block -->
+  <test name="API Test">
+
+    <!-- 
+      Parameters defined here can be accessed in your tests via ITestContext or @Parameters annotation.
+      Example: OS and Browser information can be logged in the Extent Report.
+    -->
+    <parameter name="os" value="Windows"/>
+    <parameter name="browser" value="Chrome"/>
+
+    <!-- 
+      Classes: List the fully-qualified names of the test classes.
+      Ensure these classes exist and are correctly located under the specified package.
+    -->
+    <classes>
+      <class name="testcases.ProductTests"/>
+      <class name="testcases.ProductDataDrivenTest"/>
+    </classes>
+  </test>
+</suite>
