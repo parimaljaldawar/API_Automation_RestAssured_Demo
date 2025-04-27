@@ -33,6 +33,7 @@
     <classes>
       <class name="testcases.ProductTests"/>
       <class name="testcases.ProductDataDrivenTest"/>
+      <class name="testcases.LoginTest"/>
     </classes>
   </test>
 </suite>
