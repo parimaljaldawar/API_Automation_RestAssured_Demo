@@ -51,7 +51,7 @@ public class ExtentReportManager implements ITestListener {
                 reportName = "Extent-Report-" + timestamp + ".html";
 
                 // Set the directory for reports under project root
-                String reportDirPath = System.getProperty("user.dir") + File.separator + "Extent-Reports";
+                String reportDirPath = System.getProperty("user.dir") + File.separator + "target/Extent-Reports";
                 File reportDir = new File(reportDirPath);
 
                 // Create directory if it doesn't exist
